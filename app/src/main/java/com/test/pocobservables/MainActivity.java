@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         firstFragment.getChangeStatus().observe(this, this::changeObserver);
     }
 
-    public void changeObserver(EnumStatesObservable enumStatesObservable) {
+    public void changeObserver(String enumStatesObservable) {
         if (enumStatesObservable != null) {
             Log.e(TAG,"enum" + enumStatesObservable);
         } else {
@@ -40,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void callTimeObserver() {
         try {
-            changeObserver(EnumStatesObservable.INITIAL_STATUS);
+            changeObserver(EnumStatesObservable.INITIAL_STATUS.toString());
             Thread.sleep(10000);
-            changeObserver(EnumStatesObservable.INTERMEDIATE_STATUS);
+            changeObserver(EnumStatesObservable.INTERMEDIATE_STATUS.toString());
             Thread.sleep(8000);
-            changeObserver(EnumStatesObservable.FINAL_STATUS);
+            changeObserver(EnumStatesObservable.FINAL_STATUS.toString());
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
