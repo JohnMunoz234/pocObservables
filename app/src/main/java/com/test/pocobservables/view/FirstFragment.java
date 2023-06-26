@@ -15,14 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.test.pocobservables.R;
 import com.test.pocobservables.databinding.FragmentFirstBinding;
 import com.test.pocobservables.model.callback.CustomCallback;
 import com.test.pocobservables.model.enums.EnumStatesObservable;
 import com.test.pocobservables.util.SingleLiveEvent;
 import com.test.pocobservables.viewmodel.FirstViewModel;
 
-import java.text.BreakIterator;
 
 public class FirstFragment extends Fragment {
     private String TAG = FirstFragment.class.getSimpleName();
@@ -34,12 +32,12 @@ public class FirstFragment extends Fragment {
     /**
      * observable
      */
-    private SingleLiveEvent<EnumStatesObservable> changeStatus = new SingleLiveEvent<>();
+    private MutableLiveData<String> changeStatus = new MutableLiveData<>();
 
-    public LiveData<EnumStatesObservable> getChangeStatus() {
+    public LiveData<String> getChangeStatus() {
         Log.e(TAG, "Entre aqui a getChangeStatus");
         if (changeStatus != null) {
-            changeStatus = new SingleLiveEvent<>();
+            changeStatus = new MutableLiveData<>();
         }
         return changeStatus;
     }
@@ -62,23 +60,23 @@ public class FirstFragment extends Fragment {
 
     private void getChangeStatus(EnumStatesObservable enumStatesObservable) {
         Log.e(TAG, "enum:  " + enumStatesObservable);
-        changeStatus.postValue(enumStatesObservable);
+        changeStatus.postValue(enumStatesObservable.toString());
     }
 
     private void listeners() {
         binding.firstButton.setOnClickListener(view -> {
             Log.e(TAG,"CLICK 1");
-            changeStatus.postValue(EnumStatesObservable.INITIAL_STATUS);
+            changeStatus.postValue(EnumStatesObservable.INITIAL_STATUS.toString());
         });
 
         binding.secondButton.setOnClickListener(view -> {
             Log.e(TAG,"CLICK 2");
-            changeStatus.postValue(EnumStatesObservable.INTERMEDIATE_STATUS);
+            changeStatus.postValue(EnumStatesObservable.INTERMEDIATE_STATUS.toString());
         });
 
         binding.thirdButton.setOnClickListener(view -> {
             Log.e(TAG,"CLICK 3");
-            changeStatus.postValue(EnumStatesObservable.FINAL_STATUS);
+            changeStatus.postValue(EnumStatesObservable.FINAL_STATUS.toString());
         });
     }
 

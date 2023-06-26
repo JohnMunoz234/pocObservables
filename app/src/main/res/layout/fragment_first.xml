@@ -8,30 +8,40 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="This is my first fragment" />
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="This is my first fragment"
+        android:textSize="30dp" />
 
     <Button
         android:id="@+id/firstButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Oprimir aqui para cambiar el primer estado"
-        />
+        android:layout_marginTop="100dp"
+        android:text="Oprimir aqui para cambiar el primer estado" />
+
     <Button
         android:id="@+id/secondButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
         android:layout_gravity="center_horizontal"
-        android:text="Oprimir aqui para cambiar al segundo estado"
-        />
+        android:layout_marginTop="190dp"
+        android:text="Oprimir aqui para cambiar al segundo estado" />
+
     <Button
         android:id="@+id/thirdButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:layout_gravity="center_horizontal"
-        android:text="Oprimir aqui para cambiar al tercer estado"
-        />
+        android:layout_marginTop="280dp"
+        android:text="Oprimir aqui para cambiar al tercer estado" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="380dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/undraw_multitasking_re_ffpb" />
+
 </FrameLayout>
